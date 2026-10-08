@@ -19,7 +19,7 @@ test('services expand and collapse accessibly', () => {
   fireEvent.click(ui);
   expect(ui).toHaveAttribute('aria-expanded', 'false');
 });
-test('all nine projects can be shown and collapsed', () => {
+test('all projects can be shown and collapsed', () => {
   render(<App />);
   expect(screen.queryByRole('heading', {
     name: 'FitTrack'

@@ -19,9 +19,9 @@
 :root {
   --cream: #f6f5eB;
   --ink: #19150e;
-  --amber: #f7b521;
+  --amber: #C84878;
   --muted: #77766d;
-  --gold: #b57a0b;
+  --gold: #C84878;
 }
 * {
   box-sizing: border-box;
@@ -91,7 +91,7 @@ a,button {
   touch-action: manipulation;
 }
 a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible {
-  outline: 3px solid #ad7400;
+  outline: 3px solid #C84878;
   outline-offset: 5px;
 }
 .content {
@@ -131,7 +131,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible 
   height: 40px;
   border-radius: 50%;
   background: var(--amber);
-  border: 3px solid #f6d57f;
+  border: 3px solid #C84878;
   color: var(--ink);
   font-size: 25px;
 }
@@ -199,7 +199,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible 
   line-height: 1.1;
 }
 .hero h1 em {
-  color: #dba126;
+  color: #C84878;
 }
 .hero-heading>p:last-child {
   color: var(--muted);
@@ -526,7 +526,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible 
   border-block: 2px solid var(--amber);
 }
 .dark-section em {
-  color: #d7aa65;
+  color: #C84878;
 }
 .dark-section .section-label>span {
   background: var(--cream);
@@ -740,16 +740,16 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible 
   animation: live-pulse 1.9s ease-out infinite;
 }
 @keyframes live-pulse {
-  0% { box-shadow: 0 0 0 0 rgba(247, 181, 33, .55); }
-  70% { box-shadow: 0 0 0 7px rgba(247, 181, 33, 0); }
-  100% { box-shadow: 0 0 0 0 rgba(247, 181, 33, 0); }
+  0% { box-shadow: 0 0 0 0 rgba(200, 72, 120, .55); }
+  70% { box-shadow: 0 0 0 7px rgba(200, 72, 120, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(200, 72, 120, 0); }
 }
 .project-preview.is-live {
   color: var(--amber);
   font-weight: 600;
   letter-spacing: .4px;
   text-decoration: underline;
-  text-decoration-color: rgba(247, 181, 33, .45);
+  text-decoration-color: rgba(200, 72, 120, .45);
   text-underline-offset: 6px;
   transition: gap .25s, text-decoration-color .25s;
 }
@@ -757,6 +757,56 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible 
 .project-preview.is-live:focus-visible {
   gap: 30px;
   text-decoration-color: var(--amber);
+}
+.project-image.is-site {
+  background: #e7e2d2;
+}
+.project-chrome {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #e7e2d2;
+  border-bottom: 1px solid #d8d2bf;
+  padding: 9px 13px;
+}
+.project-chrome-dots {
+  display: inline-flex;
+  gap: 6px;
+  flex-shrink: 0;
+}
+.project-chrome-dots i {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+}
+.project-chrome-dots i:nth-child(1) { background: #e0705e; }
+.project-chrome-dots i:nth-child(2) { background: #e6b54a; }
+.project-chrome-dots i:nth-child(3) { background: #7cbf6b; }
+.project-chrome-url {
+  flex: 1;
+  min-width: 0;
+  background: var(--cream);
+  border-radius: 999px;
+  padding: 4px 12px;
+  font-size: 11px;
+  letter-spacing: .3px;
+  color: #7c7461;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.project-image .project-shot {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1.3;
+  object-fit: cover;
+  object-position: top center;
+  transform-origin: top center;
+}
+.project-image.is-site .project-live-badge {
+  top: auto;
+  bottom: 14px;
 }
 .contact {
   display: grid;

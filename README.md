@@ -6,7 +6,7 @@ Edit **`src/portfolio.js`** to update the content used by the current design:
 - **`images`** and the image imports: hero/About portrait and project screenshots.
 - **`links`**: navigation labels and section IDs. Keep IDs matched to the sections in App/components.
 - **`services`**: service titles, tags, and descriptions.
-- **`projects`**: each entry is `[title, description, image, category, liveUrl?]`; add or remove entries as needed. Cards with a `liveUrl` show a **Live Preview ↗** link to the live site (plus a Live badge); cards without one open the supplied image.
+- **`projects`**: each entry is `[title, description, image, category, liveUrl?]`; add or remove entries as needed. Cards with a `liveUrl` show an auto-generated screenshot of the live site in a browser-style frame (via the free WordPress mShots service, falling back to the supplied image on error); clicking the preview or the **Live Preview ↗** link opens the live site in a new tab. Cards without one open the supplied image.
 - **`expertise`**: each entry is `[symbol, title, description]`.
 - **`ribbon`**: continuously scrolling specialties. **`ribbonDuration`** sets seconds per loop; larger values move more slowly.
 - **`email`**: EmailJS service ID, template ID, and public key. Never put private credentials here.

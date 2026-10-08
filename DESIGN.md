@@ -2,7 +2,7 @@
 
 The portfolio follows the supplied Dribbble screenshots: a cream canvas, amber accents, floating dark pill navigation, a centered portrait, a specialty ribbon, an expandable service list, and alternating cream and dark sections.
 
-The reference's sample identity, reviews, awards, and education history are replaced with Abu Junior Vandi's existing portfolio content. All nine original projects remain available through **View all projects**. TenkiPay, WanGov, Online, and LM show a **Live Preview ↗** link to their live sites with a pulsing Live badge on the image; the remaining projects keep image-only preview links because live URLs were not supplied.
+The reference's sample identity, reviews, awards, and education history are replaced with Abu Junior Vandi's existing portfolio content. All fourteen projects remain available through **View all projects**. Eight of them — TenkiPay, Korlie, WanGov, Achievers Standard Academy, Am Novate, Strimlyne, Adrehs, and SUS Energy — display an auto-generated screenshot of their live site inside a browser-chrome frame (address bar shows the domain) with a pulsing Live badge; clicking the preview or the **Live Preview ↗** link opens the live site in a new tab. Screenshots come from the free WordPress mShots service and fall back to the bundled capture in `src/assets/img/` if the service fails. The remaining projects (LOG, FitTrack, ML Algorithm, AMI, Online, LM) keep image-only preview links because live URLs were not supplied.
 
 ## Full-width refinement
 

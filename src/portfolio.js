@@ -11,9 +11,14 @@ import ml from './assets/img/ML.png';
 import ami from './assets/img/AMI.png';
 import online from './assets/img/Online.png';
 import lm from './assets/img/LM.png';
+import strimlyne from './assets/img/strimlyne.jpg';
+import adrehs from './assets/img/adrehs.jpg';
+import achievers from './assets/img/achievers.jpg';
+import amnovate from './assets/img/amnovate.jpg';
+import susenergy from './assets/img/susenergy.jpg';
 
 export const portfolio = {
-  images: { logo, portrait, korlie, tenkipay, wangov, log, fitness, ml, ami, online, lm },
+  images: { logo, portrait, korlie, tenkipay, wangov, log, fitness, ml, ami, online, lm, strimlyne, adrehs, achievers, amnovate, susenergy },
   ribbon: ['UI/UX Design', 'Dashboards', 'Website Design', 'Prototyping', 'Development'],
   email: {
     serviceId: 'service_zo695rr',
@@ -135,13 +140,18 @@ export const portfolio = {
   ],
   projects: [
     ['TenkiPay', 'Fintech Solution', tenkipay, 'Fintech', 'https://me.tenkipay.com'],
-    ['Korlie', 'Design & Development', korlie, 'Web Development'],
+    ['Korlie', 'Design & Development', korlie, 'Web Development', 'https://korlie.com/index.html'],
     ['WanGov', 'Government Portal', wangov, 'Public Services', 'https://citizens.wan.gov.sl/services'],
     ['LOG', 'Logistics & Management', log, 'Logistics'],
     ['FitTrack', 'Fitness Tracking App', fitness, 'Application'],
     ['ML Algorithm', 'Machine Learning Solution', ml, 'Data Analysis'],
     ['AMI', 'Advanced Metering Infrastructure', ami, 'Infrastructure'],
-    ['Online', 'Online Platform Services', online, 'Web Platform', 'https://strimlyne.org/'],
-    ['LM', 'Learning Management System', lm, 'Education', 'https://adrehs.org/']
+    ['Online', 'Online Platform Services', online, 'Web Platform'],
+    ['LM', 'Learning Management System', lm, 'Education'],
+    ['Achievers Standard Academy', 'School Staff Portal', achievers, 'Education', 'https://achieversl.com/login.php'],
+    ['Am Novate', 'IT Solutions Website', amnovate, 'Web Development', 'https://amnovate.com/'],
+    ['Strimlyne', 'Attendance Management Platform', strimlyne, 'SaaS', 'https://strimlyne.org/'],
+    ['Adrehs', 'Digital Addressing for Sierra Leone', adrehs, 'Web Platform', 'https://adrehs.org/'],
+    ['SUS Energy', 'Solar & Electrical Solutions Website', susenergy, 'Energy', 'https://www.susenergysl.com/index.html']
   ]
 };

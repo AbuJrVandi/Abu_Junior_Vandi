@@ -1,6 +1,14 @@
 import { portfolio } from "../portfolio";
 import { useState } from 'react';
 const projects = portfolio.projects;
+const siteShot = (url) => `https://s.wordpress.com/mshots/v1/${encodeURIComponent(url)}?w=1280`;
+const siteHost = (url) => {
+  try {
+    return new URL(url).hostname;
+  } catch {
+    return url;
+  }
+};
 export const Projects = () => {
   const [showAll, setShowAll] = useState(false);
   return (
@@ -18,20 +26,44 @@ export const Projects = () => {
         <div className="project-list" id="project-list">
           {(showAll ? projects : projects.slice(0, 3)).map(([title, description, img, tag, liveUrl], index) => (
             <article className="project-card" key={title}>
-              <a className="project-image" href={img} target="_blank" rel="noreferrer" aria-label={`Open ${title} project image`}>
-                <img src={img} alt={`${title} project preview`} loading="lazy" />
-                {liveUrl && (
+              {liveUrl ? (
+                <a
+                  className="project-image is-site"
+                  href={liveUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label={`${portfolio.copy.openLiveSite}: ${title}`}
+                >
+                  <span className="project-chrome" aria-hidden="true">
+                    <span className="project-chrome-dots"><i /><i /><i /></span>
+                    <span className="project-chrome-url">{siteHost(liveUrl)}</span>
+                  </span>
+                  <img
+                    className="project-shot"
+                    src={siteShot(liveUrl)}
+                    alt={`${title} website preview`}
+                    loading="lazy"
+                    decoding="async"
+                    onError={(e) => {
+                      e.currentTarget.onerror = null;
+                      e.currentTarget.src = img;
+                    }}
+                  />
                   <span className="project-live-badge" aria-hidden="true">
                     <span className="project-live-dot" />Live
                   </span>
-                )}
-              </a>
+                </a>
+              ) : (
+                <a className="project-image" href={img} target="_blank" rel="noreferrer" aria-label={`Open ${title} project image`}>
+                  <img src={img} alt={`${title} project preview`} loading="lazy" />
+                </a>
+              )}
               <div className="project-copy">
                 <div className="project-tags">
                   <span>{tag}</span>
                   <span>{portfolio.copy.designDevelopment}</span>
                 </div>
-                <span className="project-index">0{index + 1} {portfolio.copy.projectEyebrow}</span>
+                <span className="project-index">{String(index + 1).padStart(2, '0')} {portfolio.copy.projectEyebrow}</span>
                 <h3>{title}</h3>
                 <p>{description}</p>
                 {liveUrl ? (
