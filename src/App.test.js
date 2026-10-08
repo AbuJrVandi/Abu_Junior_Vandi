@@ -1,11 +1,13 @@
 import { render, screen, fireEvent, waitFor } from '@testing-library/react';
+import { MemoryRouter } from 'react-router-dom';
 import App from './App';
 import emailjs from '@emailjs/browser';
 jest.mock('@emailjs/browser', () => ({
   send: jest.fn()
 }));
+const renderApp = () => render(<MemoryRouter initialEntries={['/home']}><App /></MemoryRouter>);
 test('services expand and collapse accessibly', () => {
-  render(<App />);
+  renderApp();
   const website = screen.getByRole('button', {
     name: /02. Website Design/
   });
@@ -20,7 +22,7 @@ test('services expand and collapse accessibly', () => {
   expect(ui).toHaveAttribute('aria-expanded', 'false');
 });
 test('all projects can be shown and collapsed', () => {
-  render(<App />);
+  renderApp();
   expect(screen.queryByRole('heading', {
     name: 'FitTrack'
   })).not.toBeInTheDocument();
@@ -41,7 +43,7 @@ test('all projects can be shown and collapsed', () => {
   })).not.toBeInTheDocument();
 });
 test('mobile menu closes after selecting a section', () => {
-  render(<App />);
+  renderApp();
   const toggle = screen.getByRole('button', {
     name: /Menu/
   });
@@ -80,7 +82,7 @@ test('contact submits full name and resets after success', async () => {
   emailjs.send.mockResolvedValueOnce({
     status: 200
   });
-  render(<App />);
+  renderApp();
   fillForm();
   fireEvent.click(screen.getByRole('button', {
     name: /Send message/
@@ -95,7 +97,7 @@ test('contact submits full name and resets after success', async () => {
 });
 test('contact keeps entered values after a delivery failure', async () => {
   emailjs.send.mockRejectedValueOnce(new Error('Network failure'));
-  render(<App />);
+  renderApp();
   fillForm();
   fireEvent.click(screen.getByRole('button', {
     name: /Send message/
@@ -108,7 +110,7 @@ test('contact keeps entered values after a delivery failure', async () => {
 });
 
 test('specialties ribbon can be paused and resumed', () => {
-  render(<App />);
+  renderApp();
   const pause = screen.getByRole('button', { name: 'Pause specialties ribbon' });
   fireEvent.click(pause);
   expect(document.querySelector('.service-ribbon')).toHaveClass('is-paused');
