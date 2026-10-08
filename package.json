@@ -33,7 +33,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "server": "node server.js"
+    "server": "node server.js",
+    "build:log": "node scripts/deploy-log.js"
   },
   "eslintConfig": {
     "extends": [

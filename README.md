@@ -141,6 +141,7 @@ The app runs at **[http://localhost:3000](http://localhost:3000)** and hot-reloa
 | :------ | :---------- |
 | `npm start` | Launch the development server with hot reload |
 | `npm run build` | Create an optimized production build in `/build` |
+| `npm run build:log` | Production build wrapped in a step-by-step deployment log |
 | `npm test` | Run the test suite in watch mode |
 | `npm run server` | Start the optional Express contact server on port `5000` |
 | `npm run eject` | **One-way** — eject CRA config (irreversible) |
@@ -202,11 +203,13 @@ Both platform configs are already committed — connect the repository and push.
 <details>
 <summary><strong>Netlify</strong></summary>
 
-`netlify.toml` handles everything:
+`netlify.toml` handles everything — the build command runs `scripts/deploy-log.js`,
+which prints a timestamped step-by-step log (environment, install, build,
+artifact summary) in the Netlify deploy output:
 
 ```toml
 [build]
-  command = "CI=false npm run build"
+  command = "node scripts/deploy-log.js"
   publish = "build"
 
 [[redirects]]
