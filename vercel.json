@@ -1,4 +1,6 @@
 {
+  "buildCommand": "node scripts/deploy-log.js",
+  "outputDirectory": "build",
   "rewrites": [
     {
       "source": "/(.*)",

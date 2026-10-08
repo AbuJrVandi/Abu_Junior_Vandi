@@ -84,6 +84,8 @@ export const portfolio = {
   "designDevelopment": "Design & Development",
   "projectEyebrow": "/ SELECTED WORK",
   "viewProjectPreview": "View project preview",
+  "livePreview": "Live Preview",
+  "openLiveSite": "Open live site",
   "contactSuccess": "Thank you! Your message has been sent.",
   "contactError": "Your message could not be sent. Please try again or contact me on LinkedIn.",
   "getInTouch": "Get In Touch",
@@ -132,14 +134,14 @@ export const portfolio = {
     ['Wireframing & Prototyping', ['User Flows', 'Interactive Prototypes', 'Interface Planning'], 'Exploring the right structure and interactions before moving an idea into development.']
   ],
   projects: [
-    ['TenkiPay', 'Fintech Solution', tenkipay, 'Fintech'],
+    ['TenkiPay', 'Fintech Solution', tenkipay, 'Fintech', 'https://me.tenkipay.com'],
     ['Korlie', 'Design & Development', korlie, 'Web Development'],
-    ['WanGov', 'Government Portal', wangov, 'Public Services'],
+    ['WanGov', 'Government Portal', wangov, 'Public Services', 'https://citizens.wan.gov.sl/services'],
     ['LOG', 'Logistics & Management', log, 'Logistics'],
     ['FitTrack', 'Fitness Tracking App', fitness, 'Application'],
     ['ML Algorithm', 'Machine Learning Solution', ml, 'Data Analysis'],
     ['AMI', 'Advanced Metering Infrastructure', ami, 'Infrastructure'],
-    ['Online', 'Online Platform Services', online, 'Web Platform'],
-    ['LM', 'Learning Management System', lm, 'Education']
+    ['Online', 'Online Platform Services', online, 'Web Platform', 'https://strimlyne.org/'],
+    ['LM', 'Learning Management System', lm, 'Education', 'https://adrehs.org/']
   ]
 };

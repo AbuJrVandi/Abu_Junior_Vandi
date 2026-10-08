@@ -116,20 +116,39 @@ async function main() {
     'Context',
     process.env.NETLIFY === 'true'
       ? `Netlify \u00B7 ${process.env.CONTEXT || 'production'}`
-      : 'Local'
+      : process.env.VERCEL === '1'
+        ? `Vercel \u00B7 ${process.env.VERCEL_ENV || 'production'}`
+        : 'Local'
   );
-  kv('Branch', process.env.BRANCH || git(['rev-parse', '--abbrev-ref', 'HEAD']) || '\u2014');
+  kv(
+    'Branch',
+    process.env.BRANCH ||
+      process.env.VERCEL_GIT_COMMIT_REF ||
+      git(['rev-parse', '--abbrev-ref', 'HEAD']) ||
+      '\u2014'
+  );
   kv(
     'Commit',
-    shortRef(process.env.COMMIT_REF || git(['rev-parse', '--short', 'HEAD'])) || '\u2014'
+    shortRef(
+      process.env.COMMIT_REF || process.env.VERCEL_GIT_COMMIT_SHA || git(['rev-parse', '--short', 'HEAD'])
+    ) || '\u2014'
   );
-  const deployUrl = process.env.DEPLOY_PRIME_URL || process.env.URL;
+  const deployUrl =
+    process.env.DEPLOY_PRIME_URL ||
+    process.env.URL ||
+    (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : null);
   if (deployUrl) kv('Deploy URL', deployUrl);
 
   heading('Dependencies');
   if (fs.existsSync(path.join(ROOT, 'node_modules'))) {
     kv('Status', 'node_modules present \u2014 skipping install');
-    note(process.env.NETLIFY === 'true' ? '(installed by Netlify before this step)' : '');
+    note(
+      process.env.NETLIFY === 'true'
+        ? '(installed by Netlify before this step)'
+        : process.env.VERCEL === '1'
+          ? '(installed by Vercel before this step)'
+          : ''
+    );
   } else {
     kv('Status', 'node_modules missing \u2014 running npm install');
     const installCode = await runLive('npm', ['install']);

@@ -2,7 +2,7 @@
 
 The portfolio follows the supplied Dribbble screenshots: a cream canvas, amber accents, floating dark pill navigation, a centered portrait, a specialty ribbon, an expandable service list, and alternating cream and dark sections.
 
-The reference's sample identity, reviews, awards, and education history are replaced with Abu Junior Vandi's existing portfolio content. All nine original projects remain available through **View all projects**. Project preview links open the existing images; live project URLs were not supplied.
+The reference's sample identity, reviews, awards, and education history are replaced with Abu Junior Vandi's existing portfolio content. All nine original projects remain available through **View all projects**. TenkiPay, WanGov, Online, and LM show a **Live Preview ↗** link to their live sites with a pulsing Live badge on the image; the remaining projects keep image-only preview links because live URLs were not supplied.
 
 ## Full-width refinement
 
